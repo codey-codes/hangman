@@ -13,3 +13,9 @@ This app is for one of the most famous games of all time, Hangman. It uses more 
 ### Notes:
 1. The browser's console can be used to cheat by seeing what the word is
 2. The word list for this game is downloaded from: https://github.com/RazorSh4rk/random-word-api. All rights reserved to 'RazorSh4rk'.
+
+## Environments used: ##
+1. HTML: used as a markup language for the app
+2. CSS: for styling the said app
+3. JS: for creating new and updating the already present items in both HTML and CSS
+4. Adobe Illustrator: for designing the hanger pieces
