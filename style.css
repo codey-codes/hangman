@@ -1,0 +1,369 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: inherit;
+            box-sizing: inherit;
+}
+
+html, body {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.game-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    width: 320px;
+    height: 565px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+
+.hangman-itself {
+    width: 100%;
+    height: 260px;
+    border-bottom: 15px solid #e7e4e4; 
+    -webkit-clip-path: polygon(0% 99%, 0% 0%, 100% 0%, 100% 100%, 90% 98%, 85% 96%, 75% 95%, 70% 97%, 64% 98%, 54% 97%, 46% 95%, 42% 97%, 34% 99%, 29% 98%, 24% 96%, 21% 96%, 13% 100%, 7% 99%); 
+            clip-path: polygon(0% 99%, 0% 0%, 100% 0%, 100% 100%, 90% 98%, 85% 96%, 75% 95%, 70% 97%, 64% 98%, 54% 97%, 46% 95%, 42% 97%, 34% 99%, 29% 98%, 24% 96%, 21% 96%, 13% 100%, 7% 99%);    
+    overflow: hidden;
+    position: relative;
+}
+
+.hanger-stand {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    width: 70px;
+    height: 50px;
+    margin-bottom: -5px;
+    color: #e7e4e4;
+    font-size: 80px;
+    font-family: 'Hanalei', cursive;
+    display: none;
+}
+
+.hanger-bar {
+    position: absolute;
+    width: 15px;
+    height: 60px;
+}
+.hanger-bar:nth-child(2) {
+    display: none;
+    bottom: 45px;
+    left: 38px;
+}
+.hanger-bar:nth-child(3) {
+    display: none;
+    bottom: 105px;
+    left: 38px;
+}
+.hanger-bar:nth-child(4) {
+    display: none;
+    bottom: 165px;
+    left: 38px;
+}
+.hanger-bar:nth-child(5) {
+    display: none;
+    bottom: 200px;
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+    left: 60px;
+}
+.hanger-bar:nth-child(6) {
+    display: none;
+    bottom: 200px;
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+    left: 120px;
+}
+.hanger-bar:nth-child(7) {
+    display: none;
+    bottom: 200px;
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+    left: 180px;
+}
+
+.hanger-rope {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 118px;
+    width: 3px;
+    height: 50px;
+    background-color: #e7e4e4;
+}
+
+.hanger-knot {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 97px;
+}
+
+.man {
+    position: absolute;
+    bottom: 0;
+    right: 80px;
+    width: 80px;
+    height: 140px;
+}
+
+.head {
+    width: 60px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #e7e4e4;
+    background-color: #000;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    top: 0;
+}
+
+.eyes {
+    position: absolute;
+    top: 4px;
+    width: 17px;
+    height: 20px;
+    border: 2px solid #e7e4e4;
+    border-radius: 10px;
+    overflow: hidden;
+    color: #e7e4e4;
+    font-family: sans-serif;
+}
+.eyes:nth-child(1) {
+    left: 9px;
+}
+.eyes:nth-child(2) {
+    right: 9px;
+}
+
+.eye-lid-1, .eye-lid-2 {
+    border-radius: 10px;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    background-color: #e7e4e4;
+    -webkit-animation: blinkBlink 2s linear infinite alternate;
+            animation: blinkBlink 2s linear infinite alternate;
+}
+
+.eye-ball-1, .eye-ball-2 {
+    position: absolute;
+    top: 5px;
+    left: 4px;
+    width: 5px;
+    height: 5px;
+    background-color: #e7e4e4;
+    border-radius: 50%;
+}
+
+.mouth {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    background-color: #000;
+    width: 25px;
+    height: 15px;
+    bottom: 7px;
+    border-bottom: 2px solid #e7e4e4;
+    border-radius: 10px;
+}
+
+.body {
+    width: 50px;
+    height: 90px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+}
+
+.body img {
+    -webkit-filter: invert(100%);
+            filter: invert(100%);
+    width: 100%;
+    height: 100%;
+}
+
+.word-area {
+    width: 100%;
+    height: 150px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+
+.word {
+    color: #e7e4e4;
+    font-family: 'Butcherman', cursive;
+    font-size: 80px;
+}
+
+.keyboard {
+    width: 100%;
+    height: 150px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.keyboard div {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    width: 37px;
+    height: 35px;
+    margin: 1px;
+    border: 1px solid #e7e4e4;
+    color: #e7e4e4;
+    font-size: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-family: 'Hanalei', cursive;
+}
+
+.keyboard div:hover,
+.keyboard div:active {
+    color: #000;
+    background-color: #e7e4e4;
+}
+
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.loading img {
+    width: 100%;
+    height: auto;
+}
+
+.you-win {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    width: 100%;
+    display: none;
+}
+
+.you-win p {
+    color: #e7e4e4;
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: 'Righteous', cursive;
+}
+.you-win p:first-child {
+    font-size: 60px;
+    -webkit-animation: funky .2s linear infinite;
+            animation: funky .2s linear infinite;
+}
+.you-win p:last-child {
+    font-size: 16px;
+}
+
+.win-gif {
+    width: 100%;
+    -webkit-filter: invert(100%);
+            filter: invert(100%);
+}
+
+.you-lose {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    color: #e7e4e4;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 30px;
+    display: none;
+    font-family: 'Righteous', cursive;
+}
+
+@-webkit-keyframes blinkBlink {
+    0% { -webkit-transform: translateY(-20px); transform: translateY(-20px); }
+    12.5% { -webkit-transform: translateY(0); transform: translateY(0); }
+    25% { -webkit-transform: translateY(-20px); transform: translateY(-20px); }
+    100% { -webkit-transform: translateY(-20px); transform: translateY(-20px); }
+}
+
+@keyframes blinkBlink {
+    0% { -webkit-transform: translateY(-20px); transform: translateY(-20px); }
+    12.5% { -webkit-transform: translateY(0); transform: translateY(0); }
+    25% { -webkit-transform: translateY(-20px); transform: translateY(-20px); }
+    100% { -webkit-transform: translateY(-20px); transform: translateY(-20px); }
+}
+
+@-webkit-keyframes funky {
+    from { color: #e7e4e4; }
+    25% { color: #fc3232; }
+    50% { color: #adff2f; }
+    75% { color: #ffff00; }
+    to { color: #40e0d0; }
+}
+
+@keyframes funky {
+    from { color: #e7e4e4; }
+    25% { color: #fc3232; }
+    50% { color: #adff2f; }
+    75% { color: #ffff00; }
+    to { color: #40e0d0; }
+}
