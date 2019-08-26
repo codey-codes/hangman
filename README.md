@@ -12,4 +12,4 @@ This app is for one of the most famous games of all time, Hangman. It uses more 
 
 ### Notes:
 1. The browser's console can be used to cheat by seeing what the word is
-2. The word list for this game is downloaded from: https://github.com/RazorSh4rk/random-word-api. All rights reserved to 'RazorSh4rk'.
+2. The word list for this game is downloaded from: [RazorSh4rk's GitHub Page](https://github.com/RazorSh4rk/random-word-api). All rights reserved to 'RazorSh4rk'.
